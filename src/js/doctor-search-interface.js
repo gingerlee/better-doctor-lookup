@@ -1,4 +1,6 @@
-import { doctorSearch } from './../js/doctor-search.js';
+import { doctorSearch } from './../src/js/doctor-search.js';
+const apiKey = require('./../.env').apiKey;
+
 $(document).ready(function() {
 //Testing set input
   // $('#medical-condition-input').val('acne');
@@ -12,8 +14,8 @@ $(document).ready(function() {
 //Clear forms
     // $('#medical-condition-input').val("");
     // $('#name-input').val("");
-    const searchResults = doctorSerach(name, apiKey);
-    console.log(doctorSearch);
+    const searchResults = doctorSearch(apiKey);
+    console.log(searchResults);
 
   //   searchResults.then(function(response) {
   //   const doctors = JSON.parse(response);
