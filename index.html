@@ -12,9 +12,30 @@
     <title>Better Doctor Lookup</title>
   </head>
   <body>
-    <div class="test">
-      Testing - more content
-    </div>
+    <form id="doctor-finder">
+      <fieldset>
+        <legend>Search for doctors in Portland by:</legend>
+        <select>
+          <option value="" disabled selected>Choose your option</option>
+          <option value="doctorName">Doctor Name</option>
+          <option value="medicalCondition">Medical Condition</option>
+        </select>
+      </fieldset>
+      <fieldset>
+        <legend>Search for doctors in Portland by name</legend>
+        <label for="name-input">Name (searches in both first and last names):</label>
+        <input type="text" id="name-input">
+      </fieldset>
+      <fieldset>
+        <legend>Enter Medical Condition to search for doctors that can help</legend>
+        <label for="medical-condition-input">Medical Condition:</label>
+        <input type="text" id="medical-condition-input">
+      </fieldset>
+
+      <button class="btn large pink" type="submit" name="button">Search!</button>
+    </form>
+
+    <div class="output">
 
   </body>
 </html>
