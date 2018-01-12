@@ -10,10 +10,10 @@ Object.defineProperty(exports, "__esModule", {
 exports.doctorSearch = doctorSearch;
 var apiKey = require('./../../.env').apiKey;
 
-function doctorSearch(apiKey) {
+function doctorSearch(apiKey, name) {
   return new Promise(function (resolve, reject) {
     var request = new XMLHttpRequest();
-    var url = "https://api.betterdoctor.com/2016-03-01/doctors?name=name&location=or-portland&skip=0&limit=10&user_key=" + apiKey;
+    var url = "https://api.betterdoctor.com/2016-03-01/doctors?name=" + name + "&location=or-portland&skip=0&limit=10&user_key=" + apiKey;
 
     request.onload = function () {
       if (this.status === 200) {
@@ -49,31 +49,21 @@ $(document).ready(function () {
     //Clear forms
     // $('#medical-condition-input').val("");
     // $('#name-input').val("");
-    var searchResults = (0, _doctorSearch.doctorSearch)(apiKey);
-    console.log(searchResults);
+    var searchResults = (0, _doctorSearch.doctorSearch)(apiKey, name);
 
-    //   searchResults.then(function(response) {
-    //   const doctors = JSON.parse(response);
-    //   doctors.data.map(function(doctor) {
-    //   if (doctors.data) {
-    //         $('.output').append(`<div class="doctor-list-item">
-    //                               <h3>${doctor.profile.first_name} ${doctor.profile.last_name}, MD</h3>
-    //                               <div class="address">
-    //                                 <span class="location"> Address: ${doctor.practices.visit_addresss}</span>
-    //                               </div>
-    //                               <span class="phone">Phone: ${doctor.practices.phones.number}</span>
-    //                               <span class="website">Website: ${doctor.practices.phones.number}</span>
-    //                               <span class="new-patients">Accepting New Patients: ${doctor.practices.accepts_new_patients}</span>
-    //                             </div>`
-    //                           );
-    //       } else {
-    //           $('.output').append(`There are search results for your query.`
-    //                             );
-    //         }
-    //       });
-    // }, function(error) {
-    //     Error(`There was an error processing your request: ${error.message}`);
-    //   });
+    searchResults.then(function (response) {
+      var doctors = JSON.parse(response);
+      console.log(doctors);
+      doctors.data.map(function (doctor) {
+        if (doctors.data) {
+          $('.output').append('<div class="doctor-list-item">\n                                <h3>' + doctor.profile.first_name + ' ' + doctor.profile.last_name + ', ' + doctor.profile.title + '</h3>\n\n                              </div>');
+        } else {
+          $('.output').append('There are search results for your query.');
+        }
+      });
+    }, function (error) {
+      Error('There was an error processing your request: ' + error.message);
+    });
   });
 });
 
