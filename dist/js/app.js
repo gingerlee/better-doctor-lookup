@@ -10,10 +10,10 @@ Object.defineProperty(exports, "__esModule", {
 exports.doctorSearch = doctorSearch;
 var apiKey = require('./../../.env').apiKey;
 
-function doctorSearch(apiKey, name) {
+function doctorSearch(apiKey, name, condition) {
   return new Promise(function (resolve, reject) {
     var request = new XMLHttpRequest();
-    var url = "https://api.betterdoctor.com/2016-03-01/doctors?name=" + name + "&location=or-portland&skip=0&limit=10&user_key=" + apiKey;
+    var url = "https://api.betterdoctor.com/2016-03-01/doctors?name=" + name + "&query=" + condition + "&location=or-portland&skip=0&limit=10&user_key=" + apiKey;
 
     request.onload = function () {
       if (this.status === 200) {
@@ -35,36 +35,37 @@ function doctorSearch(apiKey, name) {
 var _doctorSearch = require('./../src/js/doctor-search.js');
 
 var apiKey = require('./../.env').apiKey;
-
 $(document).ready(function () {
   //Testing set input
-  // $('#medical-condition-input').val('acne');
+  $('#medical-condition-input').val('acne');
   $('#name-input').val('name');
 
   $('#doctor-finder').submit(function (event) {
     event.preventDefault();
-    var searchType = $('#medical-condition-input').val();
-    var condition = $('#medical-condition-input').val();
     var name = $('#name-input').val();
-    //Clear forms
-    // $('#medical-condition-input').val("");
-    // $('#name-input').val("");
-    var searchResults = (0, _doctorSearch.doctorSearch)(apiKey, name);
+    var condition = $('#medical-condition-input').val();
+
+    var searchResults = (0, _doctorSearch.doctorSearch)(apiKey, name, condition);
 
     searchResults.then(function (response) {
       var doctors = JSON.parse(response);
       console.log(doctors);
       doctors.data.map(function (doctor) {
-        if (doctors.data) {
-          $('.output').append('<div class="doctor-list-item">\n                                <h3>' + doctor.profile.first_name + ' ' + doctor.profile.last_name + ', ' + doctor.profile.title + '</h3>\n\n                              </div>');
+        if (doctors.length === 0 || doctors === null) {
+          $('.output').append('There are no search results for your query.');
         } else {
-          $('.output').append('There are search results for your query.');
+          $('.output').append('<div class="doctor-list-item">\n                              <h4>' + doctor.profile.first_name + ' ' + doctor.profile.last_name + ',</h4> <h5>' + doctor.profile.title + '</h5>\n                              <div class="details">\n                                <span class="address"> Address: ' + doctor['practices'][10]['visit_addresss'][5] + '</span>\n                                <span class="phone">Phone: ' + doctor['practices'][8]['phones'][0] + '</span>\n                                <span class="new-patients">Accepting New Patients: ' + doctor['practices'][0] + '</span>\n                                <span class="website">Website: ' + doctor['practices'][11] + '</span>\n                              </div>\n                            </div>');
         }
       });
     }, function (error) {
       Error('There was an error processing your request: ' + error.message);
     });
+    $('#medical-condition-input').val("");
+    $('#name-input').val("");
+    $('.output').empty();
   });
 });
+
+// JSON Doctor Details
 
 },{"./../.env":1,"./../src/js/doctor-search.js":2}]},{},[3]);
