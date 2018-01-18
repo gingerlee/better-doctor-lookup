@@ -12,7 +12,7 @@
 
 1. _`$ git clone` [https://github.com/gingerlee/better-doctor-lookup.git](https://github.com/gingerlee/better-doctor-lookup.git)_
 
-2. _`$ cd {repo name}`_
+2. _`$ cd better-doctor-lookup`_
 
 3. _`$ npm install`_
 
@@ -20,7 +20,16 @@
 
 5. _`$ gulp serve`_
 
-## User Stories
+## API Authorization
+
+1. Visit the [BetterDoctor API](https://developer.betterdoctor.com/) website.
+2. Sign up for a free account.
+3. Under "My Account" tab in the navigation bar  click the "Applications" link.
+4. Click the "Create New App" button and get a new API authorization key.
+5. Create a new file in the top level of the project with the name ".env".
+6. Add the export statement below to the file with your new API key in the quotes.
+
+`exports.apiKey = "--addYourApiKeyHere--";`
 
 
 ## Technologies Used

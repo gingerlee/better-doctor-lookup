@@ -54,7 +54,7 @@ $(document).ready(function () {
         if (doctors.length === 0 || doctors === null) {
           $('.output').append('There are no search results for your query.');
         } else {
-          $('.output').append('<div class="doctor-list-item">\n                              <h4>' + doctor.profile.first_name + ' ' + doctor.profile.last_name + ',</h4> <h5>' + doctor.profile.title + '</h5>\n                              <div class="details">\n                                <span class="address"> Address: ' + doctor['practices'][10]['visit_addresss'][5] + '</span>\n                                <span class="phone">Phone: ' + doctor['practices'][8]['phones'][0] + '</span>\n                                <span class="new-patients">Accepting New Patients: ' + doctor['practices'][0] + '</span>\n                                <span class="website">Website: ' + doctor['practices'][11] + '</span>\n                              </div>\n                            </div>');
+          $('.output').append('<div class="doctor-list-item">\n                              <h4>' + doctor.profile.first_name + ' ' + doctor.profile.last_name + ',</h4> <h5>' + doctor.profile.title + '</h5>\n                              <span class="address"> Address: ' + doctor.practices[10].visit_addresss[5] + '</span>\n\n                            </div>');
         }
       });
     }, function (error) {
@@ -67,5 +67,10 @@ $(document).ready(function () {
 });
 
 // JSON Doctor Details
+// <div class="details">
+//   <span class="phone">Phone: ${doctor.practices[8].phones[0]}</span>
+//   <span class="new-patients">Accepting New Patients: ${doctor.practices[0]}</span>
+//   <span class="website">Website: ${doctor.practices[11]}</span>
+// </div>
 
 },{"./../.env":1,"./../src/js/doctor-search.js":2}]},{},[3]);
