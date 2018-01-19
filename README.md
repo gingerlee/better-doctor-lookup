@@ -6,7 +6,7 @@
 
 ##  Description
 
-**APIs in Action:** A website where users may enter a medical issue (ie: “sore throat”, "rash", etc.) into a form, submit it, and receive a list of doctors in your city using the BetterDoctor API call..
+**APIs in Action:** A website where users may enter a medical issue (e.g.: “sore throat”, "rash", etc.) into a form, submit it, and receive a list of doctors in your city using the BetterDoctor API call..
 
 ## Installation
 
@@ -14,13 +14,11 @@
 
 2. _`$ cd better-doctor-lookup`_
 
-3. _Add a .env file to the root directory._
+3.  _`$ npm install`_
 
-4. _`$ npm install`_
+4. _`$ bower install`_
 
-5. _`$ bower install`_
-
-6. _`$ gulp serve`_
+5. _`$ gulp serve`_
 
 ## API Authorization
 
