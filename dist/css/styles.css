@@ -1,0 +1,10 @@
+* {
+  box-sizing: border-box; }
+
+body .hidden {
+  display: none; }
+
+.doctor-details {
+  list-style: none; }
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic3R5bGVzLmNzcyIsInNvdXJjZXMiOlsic3R5bGVzLnNjc3MiXSwic291cmNlc0NvbnRlbnQiOlsiKiB7XG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG59XG5cbmJvZHkge1xuICAuaGlkZGVuIHtcbiAgICBkaXNwbGF5OiBub25lO1xuICB9XG59XG5cbi5kb2N0b3ItZGV0YWlscyB7XG4gIGxpc3Qtc3R5bGU6IG5vbmU7XG59XG4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsQUFBQSxDQUFDLENBQUM7RUFDQSxVQUFVLEVBQUUsVUFBVSxHQUN2Qjs7QUFFRCxBQUNFLElBREUsQ0FDRixPQUFPLENBQUM7RUFDTixPQUFPLEVBQUUsSUFBSSxHQUNkOztBQUdILEFBQUEsZUFBZSxDQUFDO0VBQ2QsVUFBVSxFQUFFLElBQUksR0FDakIifQ== */
