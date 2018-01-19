@@ -1,5 +1,6 @@
-import { doctorSearch } from './../src/js/doctor-search.js';
+import { DoctorList } from './../src/js/doctor-search.js';
 const apiKey = require('./../.env').apiKey;
+
 $(document).ready(function() {
 //Testing set input
   $('#medical-condition-input').val('acne');
@@ -10,29 +11,10 @@ $(document).ready(function() {
     const name = $('#name-input').val();
     const condition = $('#medical-condition-input').val();
 
+    let searchResults = new DoctorList();
+    searchResults.doctorSearch(apiKey, name, condition);
 
-
-    const searchResults = doctorSearch(apiKey, name, condition);
-
-    searchResults.then(function(response) {
-    const doctors = JSON.parse(response);
-    console.log(doctors);
-    doctors.data.map(function(doctor) {
-    if ((doctors.length === 0) || (doctors === null)) {
-      $('.output').append(`There are no search results for your query.`
-                        );
-      } else {
-        $('.output').append(`<div class="doctor-list-item">
-                              <h4>${doctor.profile.first_name} ${doctor.profile.last_name},</h4> <h5>${doctor.profile.title}</h5>
-
-                            </div>`
-                          );
-
-          }
-        });
-  }, function(error) {
-      Error(`There was an error processing your request: ${error.message}`);
-    });
+    //clear last form input
     $('#medical-condition-input').val("");
     $('#name-input').val("");
     $('.output').empty();
