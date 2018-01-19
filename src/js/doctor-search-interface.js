@@ -2,9 +2,6 @@ import { DoctorList } from './../src/js/doctor-search.js';
 const apiKey = require('./../.env').apiKey;
 
 $(document).ready(function() {
-//Testing set input
-  $('#medical-condition-input').val('acne');
-  $('#name-input').val('name');
 
   $('#doctor-finder').submit(function(event) {
     event.preventDefault();
