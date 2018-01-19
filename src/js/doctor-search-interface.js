@@ -20,11 +20,3 @@ $(document).ready(function() {
     $('.output').empty();
   });
 });
-
-// JSON Doctor Details
-// <div class="details">
-//   <span class="address"> Address: ${doctor.practices[10].visit_addresss[5]}</span>
-//   <span class="phone">Phone: ${doctor.practices[8].phones[0]}</span>
-//   <span class="new-patients">Accepting New Patients: ${doctor.practices[0]}</span>
-//   <span class="website">Website: ${doctor.practices[11]}</span>
-// </div>
