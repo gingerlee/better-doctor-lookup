@@ -14,7 +14,7 @@ $(document).ready(function() {
     let searchResults = new DoctorList();
     searchResults.doctorSearch(apiKey, name, condition);
 
-    //clear last form input
+    //clear form input and doctor list output
     $('#medical-condition-input').val("");
     $('#name-input').val("");
     $('.output').empty();

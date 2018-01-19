@@ -1,12 +1,12 @@
 {
-  "name": "Doctor Lookup",
+  "name": "doctor-lookup",
   "description": "project description",
   "main": "gulpfile.js",
   "authors": [
     "Ginger Lee Kretschmer <kretschmons@gmail.com>"
   ],
   "license": "ISC",
-  "homepage": "",
+  "homepage": "https://github.com/gingerlee/better-doctor-lookup",
   "ignore": [
     "**/.*",
     "node_modules",
