@@ -27,7 +27,7 @@ export class DoctorList {
   if (doctors.meta.count > 0) {
     doctors.data.map(function(doctor) {
       $('.output').append(`<div class="doctor-name">
-                              <h4>${doctor.profile.first_name} ${doctor.profile.last_name},</h4> <h5>${doctor.profile.title}</h5>
+                              <h4>${doctor.profile.first_name} ${doctor.profile.last_name}, ${doctor.profile.title}</h4>
                             </div>`
                           );
     doctor.practices.map(function(details) {
@@ -48,6 +48,11 @@ export class DoctorList {
           <br>`);
         }
       })
+      if (doctor.practices[0].accepts_new_patients === true) {
+              $('.output').append(`<p>Accepting New Patients: <strong>Yes</strong></p>`);
+            } else {
+              $('.output').append(`<p>Accepting New Patients: <strong>No</strong></p>`);
+            }
     })
   } else {
     $('.output').append(`There are no search results for your query.`);

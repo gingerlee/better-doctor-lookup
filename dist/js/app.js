@@ -43,7 +43,7 @@ var DoctorList = exports.DoctorList = function () {
 
         if (doctors.meta.count > 0) {
           doctors.data.map(function (doctor) {
-            $('.output').append('<div class="doctor-name">\n                              <h4>' + doctor.profile.first_name + ' ' + doctor.profile.last_name + ',</h4> <h5>' + doctor.profile.title + '</h5>\n                            </div>');
+            $('.output').append('<div class="doctor-name">\n                              <h4>' + doctor.profile.first_name + ' ' + doctor.profile.last_name + ', ' + doctor.profile.title + '</h4>\n                            </div>');
             doctor.practices.map(function (details) {
               $('.output').append('<ul class="doctor-details">\n                              <li><p>' + details.visit_address.street + '</p></li>\n                              <li><p>' + details.visit_address.city + ', ' + details.visit_address.state + ' ' + details.visit_address.zip + '</p></li>\n                              <li><p>Phone: ' + details.phones[0].number + '</p></li>\n                            </ul>');
               if (details.webiste) {
@@ -52,6 +52,11 @@ var DoctorList = exports.DoctorList = function () {
                 $('.output').append('<p><strong>No website available.</strong></p>\n          <br>');
               }
             });
+            if (doctor.practices[0].accepts_new_patients === true) {
+              $('.output').append('<p>Accepting New Patients: <strong>Yes</strong></p>');
+            } else {
+              $('.output').append('<p>Accepting New Patients: <strong>No</strong></p>');
+            }
           });
         } else {
           $('.output').append('There are no search results for your query.');
