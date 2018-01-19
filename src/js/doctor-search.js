@@ -30,19 +30,19 @@ export class DoctorList {
                               <h4>${doctor.profile.first_name} ${doctor.profile.last_name},</h4> <h5>${doctor.profile.title}</h5>
                             </div>`
                           );
-    doctor.practices.map(function(address) {
-      $('.output').append(`<ul class="doctor-address">
-                              <li><p>${location.visit_address.street}</p></li>
-                              <li><p>${location.visit_address.city}, ${location.visit_address.state} ${location.visit_address.zip}</p></li>
-                              <li><p>Phone: ${location.phone}</p></li>
-                              <li><p>Website: ${location.webiste}</p></li>
+    doctor.practices.map(function(details) {
+      $('.output').append(`<ul class="doctor-details">
+                              <li><p>${details.visit_address.street}</p></li>
+                              <li><p>${details.visit_address.city}, ${details.visit_address.state} ${details.visit_address.zip}</p></li>
+                              <li><p>Phone: ${details.phone}</p></li>
+                              <li><p>Website: ${details.webiste}</p></li>
                             </ul>`
                           );
-    })
+        }
+      })
   } else {
     $('.output').append(`There are no search results for your query.`);
-      }
-    });
+    }
 
   }, function(error) {
       Error(`There was an error processing your request: ${error.message}`);
