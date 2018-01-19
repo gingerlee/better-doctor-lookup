@@ -34,12 +34,19 @@ export class DoctorList {
       $('.output').append(`<ul class="doctor-details">
                               <li><p>${details.visit_address.street}</p></li>
                               <li><p>${details.visit_address.city}, ${details.visit_address.state} ${details.visit_address.zip}</p></li>
-                              <li><p>Phone: ${details.phone}</p></li>
-                              <li><p>Website: ${details.webiste}</p></li>
+                              <li><p>Phone: ${details.phones[0].number}</p></li>
                             </ul>`
                           );
-        })
+        if (details.webiste){
+          $('.output').append(`<ul class="doctor-details">
+                                 <li><p>Website: ${details.webiste}</p></li>
+                               </ul>`
+                              );
+        } else {
+          $('.output').append(`No website available.`);
+        }
       })
+    })
   } else {
     $('.output').append(`There are no search results for your query.`);
     }

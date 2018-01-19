@@ -45,7 +45,12 @@ var DoctorList = exports.DoctorList = function () {
           doctors.data.map(function (doctor) {
             $('.output').append('<div class="doctor-name">\n                              <h4>' + doctor.profile.first_name + ' ' + doctor.profile.last_name + ',</h4> <h5>' + doctor.profile.title + '</h5>\n                            </div>');
             doctor.practices.map(function (details) {
-              $('.output').append('<ul class="doctor-details">\n                              <li><p>' + details.visit_address.street + '</p></li>\n                              <li><p>' + details.visit_address.city + ', ' + details.visit_address.state + ' ' + details.visit_address.zip + '</p></li>\n                              <li><p>Phone: ' + details.phone + '</p></li>\n                              <li><p>Website: ' + details.webiste + '</p></li>\n                            </ul>');
+              $('.output').append('<ul class="doctor-details">\n                              <li><p>' + details.visit_address.street + '</p></li>\n                              <li><p>' + details.visit_address.city + ', ' + details.visit_address.state + ' ' + details.visit_address.zip + '</p></li>\n                              <li><p>Phone: ' + details.phones[0].number + '</p></li>\n                            </ul>');
+              if (details.webiste) {
+                $('.output').append('<ul class="doctor-details">\n                                 <li><p>Website: ' + details.webiste + '</p></li>\n                               </ul>');
+              } else {
+                $('.output').append('No website available.');
+              }
             });
           });
         } else {
