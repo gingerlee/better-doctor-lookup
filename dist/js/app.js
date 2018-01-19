@@ -47,9 +47,9 @@ var DoctorList = exports.DoctorList = function () {
             doctor.practices.map(function (details) {
               $('.output').append('<ul class="doctor-details">\n                              <li><p>' + details.visit_address.street + '</p></li>\n                              <li><p>' + details.visit_address.city + ', ' + details.visit_address.state + ' ' + details.visit_address.zip + '</p></li>\n                              <li><p>Phone: ' + details.phones[0].number + '</p></li>\n                            </ul>');
               if (details.webiste) {
-                $('.output').append('<ul class="doctor-details">\n                                 <li><p>Website: ' + details.webiste + '</p></li>\n                               </ul>');
+                $('.output').append('<div class="doctor-details">\n                                 <p><strong>Website: ' + details.webiste + '</strong></p>\n                                 <br>\n                               </div>');
               } else {
-                $('.output').append('No website available.');
+                $('.output').append('<p><strong>No website available.</strong></p>\n          <br>');
               }
             });
           });
@@ -73,6 +73,9 @@ var _doctorSearch = require('./../src/js/doctor-search.js');
 var apiKey = require('./../.env').apiKey;
 
 $(document).ready(function () {
+  //Testing set input
+  $('#medical-condition-input').val('acne');
+  $('#name-input').val('name');
 
   $('#doctor-finder').submit(function (event) {
     event.preventDefault();

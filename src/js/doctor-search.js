@@ -38,12 +38,14 @@ export class DoctorList {
                             </ul>`
                           );
         if (details.webiste){
-          $('.output').append(`<ul class="doctor-details">
-                                 <li><p>Website: ${details.webiste}</p></li>
-                               </ul>`
+          $('.output').append(`<div class="doctor-details">
+                                 <p><strong>Website: ${details.webiste}</strong></p>
+                                 <br>
+                               </div>`
                               );
         } else {
-          $('.output').append(`No website available.`);
+          $('.output').append(`<p><strong>No website available.</strong></p>
+          <br>`);
         }
       })
     })
