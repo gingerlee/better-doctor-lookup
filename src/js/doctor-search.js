@@ -38,7 +38,7 @@ export class DoctorList {
                               <li><p>Website: ${details.webiste}</p></li>
                             </ul>`
                           );
-        }
+        })
       })
   } else {
     $('.output').append(`There are no search results for your query.`);
