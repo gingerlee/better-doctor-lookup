@@ -14,11 +14,13 @@
 
 2. _`$ cd better-doctor-lookup`_
 
-3. _`$ npm install`_
+3. _Add a .env file to the root directory._
 
-4. _`$ bower install`_
+4. _`$ npm install`_
 
-5. _`$ gulp serve`_
+5. _`$ bower install`_
+
+6. _`$ gulp serve`_
 
 ## API Authorization
 
@@ -29,7 +31,7 @@
 5. Create a new file in the top level of the project with the name ".env".
 6. Add the export statement below to the file with your new API key in the quotes.
 
-`exports.apiKey = "--addYourApiKeyHere--";`
+`exports.apiKey = "INSERT YOUR API KEY HERE";`
 
 
 ## Technologies Used
